@@ -1,8 +1,5 @@
 package com.wellsfargo.counselor.entity;
 
-
-import java.util.Date;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,20 +25,21 @@ public class Security{
     private String category;
 
     @Column(nullable = false)
-    private long purchasePrice;
+    private float purchasePrice;
 
     @Column(nullable = false)
-    private Date purchaseDate;
+    private String purchaseDate;
 
     @Column(nullable = false)
-    private long quantity;
+    private float quantity;
 
     protected Security() {
 
     }
 
-    public Security(String name, String category, long purchasePrice, Date purchaseDate, long quantity)
+    public Security(Portfolio portfolio, String name, String category, long purchasePrice, String purchaseDate, long quantity)
     {
+        this.portfolio = portfolio;
         this.name = name;
         this.category = category;
         this.purchasePrice = purchasePrice;
@@ -77,28 +75,28 @@ public class Security{
         this.category = category;
     }
 
-    public long getPurchasePrice() {
+    public float getPurchasePrice() {
         return purchasePrice;
     }
 
-    public void setPurchasePrice(long purchasePrice)
+    public void setPurchasePrice(float purchasePrice)
     {
         this.purchasePrice = purchasePrice;
     }
 
-    public Date getPurchaseDate() {
+    public String getPurchaseDate() {
         return purchaseDate;
     }
 
-    public void setPurchaseDate(Date purchaseDate) {
+    public void setPurchaseDate(String purchaseDate) {
         this.purchaseDate = purchaseDate;
     }
 
-    public long getQuantity() {
+    public float getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(long quantity) {
+    public void setQuantity(float quantity) {
         this.quantity = quantity;
     }
     
