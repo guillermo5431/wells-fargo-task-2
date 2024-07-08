@@ -1,16 +1,20 @@
 package com.wellsfargo.counselor.entity;
 
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Portfolio{
 
     @Id
-    @@GeneratedValue()
+    @GeneratedValue
     private long portfolioid;
 
     @ManyToOne
@@ -43,6 +47,11 @@ public class Portfolio{
 
     public void setCreationDate(Date creationDate){
         this.creationDate = creationDate;
+    }
+
+    //Getter for Portfolioid
+    public long getPortfolioId() {
+        return portfolioid;
     }
 
 

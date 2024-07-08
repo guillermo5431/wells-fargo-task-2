@@ -5,6 +5,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Client{
@@ -14,8 +16,8 @@ public class Client{
     private long clientid;
 
     @ManyToOne
-    @JoinColumn(name = "advisorId") // Name of the foreign key column
-    private long advisorid;
+    @JoinColumn(name = "advisoroId") // Name of the foreign key column
+    private Advisor advisor;
 
     @Column(nullable = false)
     private String firstName;
@@ -42,6 +44,10 @@ public class Client{
         this.address = address;
         this.phone = phone;
         this.email = email;
+    }
+
+    public long getClientId() {
+        return clientid;
     }
 
     //Getter and Setter for Advisor
